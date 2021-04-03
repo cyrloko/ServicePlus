@@ -5,6 +5,7 @@ import com.jimmy.serviceplus.service.PersonneRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -50,5 +51,26 @@ public class ServicePlusController {
             produces = {MediaType.APPLICATION_JSON_VALUE})
     public Personne updatePersonne(@RequestBody Personne personne){
         return personneService.save(personne);
+    }
+
+    @DeleteMapping(path = "/personne",
+            consumes = {MediaType.APPLICATION_JSON_VALUE})
+    public HttpStatus deletePersonne(@RequestBody Personne personne){
+        if (!personneService.findById(personne.getId()).equals(Optional.empty())) {
+            personneService.delete(personne);
+            return HttpStatus.OK;
+        }else {
+            return HttpStatus.NOT_FOUND;
+        }
+    }
+
+    @DeleteMapping(path = "/personne/{id}")
+    public HttpStatus deletePersonne(@PathVariable Long id){
+        if (!personneService.findById(id).equals(Optional.empty())) {
+            personneService.deleteById(id);
+            return HttpStatus.OK;
+        }else {
+            return HttpStatus.NOT_FOUND;
+        }
     }
 }

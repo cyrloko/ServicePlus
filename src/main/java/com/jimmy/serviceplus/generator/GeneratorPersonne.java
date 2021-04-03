@@ -21,7 +21,7 @@ public class GeneratorPersonne implements CommandLineRunner {
         personneService.deleteAll();
         personneService.save(new Personne("LOKO","Cyr Jim Loris",new Date(),"jimbower95@hotmail.fr"));
         personneService.save(new Personne("SARDAIN","Paul",new Date(),"jimbower95820@hotmail.fr"));
-        personneService.save(new Personne("LOKO","Cyr Jim Loris",new Date(),"jimbower9@hotmail.fr"));
+        personneService.save(new Personne("LEMOUSSU","Louise",new Date(),"louise.lemoussu@spie.com"));
         personneService.save(new Personne("LOKO","Cyr Jim Loris",new Date(),"jimbower95@gmail.com"));
         personneService.save(new Personne("LOKO","Cyr Jim Loris",new Date(),"cyr.akpo@yahoo.fr"));
         personneService.save(new Personne("LOKO","Cyr Jim Loris",new Date(),"cyr.loko@yahoo.fr"));
